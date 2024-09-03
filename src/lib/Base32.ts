@@ -3,7 +3,7 @@
 // https://www.boost.org/LICENSE_1_0.txt
 
 import { z } from "zod";
-import { rand50bitInt } from "./randBigInt.js";
+import { rand50bitInt } from "./rand50bitInt.js";
 
 export const Base32Alphabet = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
 

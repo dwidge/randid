@@ -18,9 +18,14 @@ export const randBigInt = (
   );
 };
 
-export const rand50bitInt = (
-  shard: number = randInt(),
-  timestamp = getUnixTimestamp()
-): number => Number(randBigInt(shard, timestamp) & mask50);
+export const extractShardAndTimestampBigInt = (
+  rand: bigint
+): { shard: number; timestamp: number } => {
+  const mask50 = BigInt(0x3ffffffffffff);
+  const timestamp22 = Number((rand >> BigInt(28)) & mask50);
+  const shard = Number((rand >> BigInt(16)) & 0xfffn);
+  const timestamp = timestamp22 << 7;
+  return { shard, timestamp };
+};
 
-const mask50 = BigInt(0x3ffffffffffff);
+export const mask50 = BigInt(0x3ffffffffffff);
