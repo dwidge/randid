@@ -1,7 +1,7 @@
 import { randInt } from "./randInt.js";
 import { getUnixTimestamp } from "./UnixTimestamp.js";
 
-export const rand50bitInt = (
+export const randInt50 = (
   shard: number = randInt(),
   timestamp = getUnixTimestamp()
 ): number => {
@@ -12,10 +12,11 @@ export const rand50bitInt = (
     ((timestamp22 << (12 + 16)) | (shard12 << 16) | random16) & mask50;
   return result >>> 0;
 };
+export const rand50bitInt = randInt50;
 
 const mask50 = 0x3ffffffffffff;
 
-export const extractShardAndTimestamp50BitInt = (
+export const extractShardAndTimestampInt50 = (
   rand: number
 ): { shard: number; timestamp: number } => {
   const timestamp22 = (rand >> 28) & 0x3fffff;

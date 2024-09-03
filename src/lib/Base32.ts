@@ -3,7 +3,7 @@
 // https://www.boost.org/LICENSE_1_0.txt
 
 import { z } from "zod";
-import { rand50bitInt } from "./rand50bitInt.js";
+import { randInt50 } from "./randInt50.js";
 
 export const Base32Alphabet = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
 
@@ -35,7 +35,7 @@ export const toBase32 = (value: number): Base32 => {
   return Base32.parse(result.padStart(10, "0"));
 };
 
-export const randBase32 = (): Base32 => toBase32(rand50bitInt());
+export const randBase32 = (): Base32 => toBase32(randInt50());
 
 export const Base32BigInt = z.union([Base32.transform(fromBase32), z.number()]);
 export type Base32BigInt = z.infer<typeof Base32BigInt>;
