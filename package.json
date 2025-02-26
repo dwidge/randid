@@ -1,6 +1,6 @@
 {
   "name": "@dwidge/randid",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dwidge/randid.git"
@@ -32,7 +32,7 @@
     "fast-check": "^3.22.0",
     "ncp": "^2.0.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.2.2"
+    "typescript": "^5.7.3"
   },
   "publishConfig": {
     "access": "public"
